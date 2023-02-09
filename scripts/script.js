@@ -3,24 +3,27 @@ $(function () {
 
   // $("#draggable").draggable();
 
-  var $drag_counter = $("#event-drag"),
-    counts = 0;
+  counts = 0;
 
   $("#resetGame").click(function () {
     console.log("clicked button");
     counts = 0;
+
     $("span.count").text(counts);
     $("#gameOutput").text("");
+
+    $("#draggable").fadeOut(20).animate({ left: 0 }).fadeIn(20);
   });
 
   $("#draggable").draggable({
+    containment: "#doge-row",
     drag: function () {
       counts++;
-      updateCounterStatus($drag_counter, counts);
+      updateCounterStatus(counts);
     },
   });
 
-  function updateCounterStatus($event_counter, new_count) {
+  function updateCounterStatus(new_count) {
     //todo: if more than 174, then wow. if not, no wow.
 
     var game_msg = "";
@@ -37,7 +40,9 @@ $(function () {
       );
     }
 
+    console.table("bout to update count", new_count);
+
     $("#gameOutput").text(game_msg);
-    $("span.count", $event_counter).text(new_count);
+    $("span.count").text(new_count);
   }
 });

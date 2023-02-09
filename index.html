@@ -1,3 +1,12 @@
+<!-- bravo => charlie improvements (Web 2.0)
+
+  html: incorporate BS5 gride, title bar
+  css: include a google font 
+  js/jQ: ? 
+
+
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,64 +28,73 @@
   <body>
     <!-- https://github.com/barrycumbie/laughing-couscous-charlie -->
 
-    <a
-      href="https://github.com/barrycumbie/laughing-couscous-charlie"
-      target="_blank"
-      >check out my code</a
-    >
-
     <!-- this is my main container for everything on my page -->
     <div class="container-fluid">
+      <!-- title bar -->
+
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+          <div class="container-fluid">
+            <a class="navbar-brand">how much wow? so much wow! v2.0</a>
+          </div>
+
+          <!-- Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/barrycumbie/laughing-couscous-charlie"
+                target="_blank"
+                >check out my code</a
+              >
+            </li>
+            <!-- 
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>-->
+          </ul>
+        </div>
+      </nav>
+
+      <!-- game controls  -->
       <div class="row">
-        <div class="col-md-12">
-          <nav>nav bar</nav>
+        <div class="col-md-8 offset-col-2">
+          <button id="resetGame" class="btn btn-secondary">Reset Game</button>
+
+          <ul class="ui-helper-reset">
+            <li id="event-drag" class="ui-state-default ui-corner-all"></li>
+            <span class="ui-icon ui-icon-arrow-4"></span
+            >&quot;drag&quot; invoked
+            <span class="count">0</span>
+          </ul>
+
+          <div id="gameOutput"></div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-8">first column</div>
-
-        <div class="col-md-4">second column</div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">first column</div>
-
-        <div class="col-md-6">second column</div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-8">first column</div>
-
-        <div class="col-md-4">second column</div>
+      <!-- game space -->
+      <div id="doge-row" class="row">
+        <div class="col-md-6">
+          <div id="draggable" class="ui-widget-content ui-widget">
+            <img
+              alt="doge meme"
+              src="https://i.redd.it/51xf4aulbc801.jpg"
+              height="350px"
+            />
+          </div>
+        </div>
       </div>
 
+      <!-- footer -->
       <div class="row">
         <div class="col-md-8">first column</div>
 
         <div class="col-md-4">second column</div>
       </div>
     </div>
-
-    <!-- partial:index.partial.html -->
-    <h2>how much wow? so much wow! v2.0</h2>
-    <button id="resetGame" class="btn btn-secondary">Reset Game</button>
-
-    <ul class="ui-helper-reset">
-      <li id="event-drag" class="ui-state-default ui-corner-all">
-        <span class="ui-icon ui-icon-arrow-4"></span>&quot;drag&quot; invoked
-        <span class="count">0</span>x
-      </li>
-    </ul>
-
-    <div id="draggable" class="ui-widget-content ui-widget">
-      <img
-        alt="doge meme"
-        src="https://i.redd.it/51xf4aulbc801.jpg"
-        height="350px"
-      />
-    </div>
-
-    <div id="gameOutput"></div>
 
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
